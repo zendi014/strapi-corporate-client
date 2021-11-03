@@ -15,7 +15,6 @@ import LocaleSwitch from "../locale-switch"
 const Navbar = ({ navbar, pageContext }) => {  
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
-
   return (
     <>
       {/* The actual navbar */}
@@ -41,7 +40,6 @@ const Navbar = ({ navbar, pageContext }) => {
               ))}
             </ul>
           </div>
-          
         </div>
       </nav>
 
