@@ -12,9 +12,7 @@ import NextImage from "./image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
-const Navbar = ({ navbar, pageContext }) => {
-  console.log(navbar);
-  
+const Navbar = ({ navbar, pageContext }) => {  
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
 
