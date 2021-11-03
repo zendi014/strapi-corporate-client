@@ -12,10 +12,9 @@ import NextImage from "./image"
 import CustomLink from "./custom-link"
 import LocaleSwitch from "../locale-switch"
 
-const Navbar = ({ navbar, pageContext }) => {  
+const Navbar = ({ navbar, pageContext }) => {
   const router = useRouter()
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false)
-  
   return (
     <>
       {/* The actual navbar */}
@@ -41,8 +40,40 @@ const Navbar = ({ navbar, pageContext }) => {
               ))}
             </ul>
           </div>
+          <div className="flex">
+            {/* Locale Switch Mobile */}
+            {pageContext.localizedPaths && (
+              <div className="md:hidden">
+                <LocaleSwitch pageContext={pageContext} />
+              </div>
+            )}
+            {/* Hamburger menu on mobile */}
+            <button
+              onClick={() => setMobileMenuIsShown(true)}
+              className="p-1 block md:hidden"
+            >
+              <MdMenu className="h-8 w-auto" />
+            </button>
+            {/* CTA button on desktop */}
+            {navbar.button && (
+              <div className="hidden md:block">
+                <ButtonLink
+                  button={navbar.button}
+                  appearance={getButtonAppearance(navbar.button.type, "light")}
+                  compact
+                />
+              </div>
+            )}
+            {/* Locale Switch Desktop */}
+            {pageContext.localizedPaths && (
+              <div className="hidden md:block">
+                <LocaleSwitch pageContext={pageContext} />
+              </div>
+            )}
+          </div>
         </div>
       </nav>
+
       {/* Mobile navigation menu panel */}
       {mobileMenuIsShown && (
         <MobileNavMenu
