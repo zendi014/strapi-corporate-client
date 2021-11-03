@@ -42,7 +42,6 @@ const Navbar = ({ navbar, pageContext }) => {
           </div>
         </div>
       </nav>
-
       {/* Mobile navigation menu panel */}
       {mobileMenuIsShown && (
         <MobileNavMenu
